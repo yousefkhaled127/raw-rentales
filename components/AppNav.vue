@@ -433,7 +433,7 @@ try {
       ...(token && { Authorization: `Bearer ${token}` }),
     },
   });
-  notifications.value = data.value.data.data
+  notifications.value = data.value?.data
 
 } catch (error) {
   console.log(error);
