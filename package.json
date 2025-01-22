@@ -35,8 +35,6 @@
     "vue-router": "latest"
   },
   "devDependencies": {
-    "@primevue/nuxt-module": "^4.2.4",
-    "@pinia-plugin-persistedstate/nuxt": "^1.2.0"
-
+    "@primevue/nuxt-module": "^4.2.4"
   }
 }
