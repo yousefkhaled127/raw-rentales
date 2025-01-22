@@ -22,7 +22,7 @@
           <div class="content-logo content-logo-foot">
             <img
               class="img-logo-footer"
-              src="../assets/images/group.png"
+              src="../assets/images/Group.png"
               alt=""
             />
             <ul class="head-sohial foot-sohial">
