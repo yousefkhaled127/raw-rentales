@@ -117,8 +117,6 @@ globalHome.loading = true; // Set loading to true before data fetch
 
 
 
-
-
 onMounted(() => {
     const homeData = globalHome.dataHome?.data;
     images.value = homeData.slider;

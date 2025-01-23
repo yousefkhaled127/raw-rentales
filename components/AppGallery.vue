@@ -16,21 +16,18 @@
     :key="gallery.id"
   >
 
+  <div class="position-relative">
     <nuxt-link :to="localePath(`/products/${gallery.id}`)">
       <div class="gallery-content">
         <div class="gallery-inner">
           <span v-if="!gallery.discount == 0" class="rival-Sallery">{{
             gallery.discount
           }}%</span>
-          <button :disabled="props.deleteFavurte" @click.prevent="eventFavourate(gallery)">
-            <font-awesome-icon v-if="!gallery.is_favorite" class="love-gallery" icon="fa-regular fa-heart" />
-            <font-awesome-icon v-if="gallery.is_favorite" class="love-gallery" icon="fa-solid fa-heart" />
-          </button>
 
           <button
             v-if="props.deleteFavurte"
             class="delete-gallery"
-            @click.prevent="eventFavourate(gallery)"
+            @click="eventFavourate(gallery)"
           >
             <font-awesome-icon icon="fa-solid fa-trash-can" />
           </button>
@@ -56,6 +53,13 @@
         </div>
       </div>
     </nuxt-link>
+    <button :disabled="props.deleteFavurte" @click.prevent="eventFavourate(gallery)">
+            <font-awesome-icon v-if="!gallery.is_favorite" class="love-gallery" icon="fa-regular fa-heart" />
+            <font-awesome-icon v-if="gallery.is_favorite" class="love-gallery" icon="fa-solid fa-heart" />
+     </button>
+  </div>
+ 
+
   </div>
   <!-- </div> -->
 </template>
