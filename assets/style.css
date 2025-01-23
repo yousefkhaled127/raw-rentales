@@ -1730,8 +1730,8 @@ input[type="search"]::-webkit-search-cancel-button {
 @media (max-width: 576px) {
   .head-hint {
     width: 100%;
-    gap: 20px;
-    justify-content: start;
+    gap: 6px;
+    justify-content: end;
   }
   .home-slider {
     height: 300px;
