@@ -154,7 +154,7 @@
               :class="{ 'links-show': buttonShowlinks }"
             >
               <li>
-                <NuxtLink :to="localePath('/')">{{ $t("home") }}</NuxtLink>
+                <NuxtLink @click.native="handleNavigation" :to="localePath('/')">{{ $t("home") }}</NuxtLink>
               </li>
               <div class="dropdown">
                 <button
@@ -173,7 +173,7 @@
                   aria-labelledby="dropdownMenuLink"
                 >
                 <li v-for="categor in categories" :key="categor.id">
-                  <nuxt-link :to="localePath(`/shoping/${categor.id}`)">
+                  <nuxt-link @click.native="handleNavigation" :to="localePath(`/shoping/${categor.id}`)">
                     {{ categor.name }}
                   </nuxt-link>
                 </li>
@@ -205,7 +205,7 @@
                 </ul>
               </div>
               <li>
-                <nuxt-link :to="localePath('/orders')" @click="clickRequest()">{{
+                <nuxt-link :to="localePath('/orders')" @click.native="clickRequest()">{{
                   $t("requests")
                 }}</nuxt-link>
               </li>
@@ -225,17 +225,17 @@
               </a>
               </li>
               <li>
-                <NuxtLink :to="localePath('/servicees')">{{
+                <NuxtLink @click.native="handleNavigation" :to="localePath('/servicees')">{{
                   $t("Services")
                 }}</NuxtLink>
               </li>
               <li>
-                <NuxtLink :to="localePath('/favorite')">{{
+                <NuxtLink @click.native="handleNavigation" :to="localePath('/favorite')">{{
                   $t("Favorite")
                 }}</NuxtLink>
               </li>
               <li>
-                <NuxtLink :to="localePath('/contact')"
+                <NuxtLink @click.native="handleNavigation" :to="localePath('/contact')"
                   >{{ $t("contact") }}
                 </NuxtLink>
               </li>
@@ -273,6 +273,7 @@ function clickRequest(e) {
     popup.value = true;
     e.preventDefault();
   }
+  buttonShowlinks.value = false;
 }
 const notification_token = ref(true);
 const handleClick = () => {
@@ -286,7 +287,10 @@ const handleClick = () => {
   }
 };
 
-
+function handleNavigation() {
+  // Close the dropdown menu after navigating
+  buttonShowlinks.value = false;
+}
 
 
 

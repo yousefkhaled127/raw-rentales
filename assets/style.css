@@ -1725,7 +1725,6 @@ input[type="search"]::-webkit-search-cancel-button {
 .head-hint {
   gap: 10px;
 }
-
 }
 @media (max-width: 576px) {
   .head-hint {
