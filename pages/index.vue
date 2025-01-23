@@ -117,14 +117,16 @@ globalHome.loading = true; // Set loading to true before data fetch
 
 onMounted(async () => {
   const cockie = useCookie("mac_addressGlobal");
-// If no mac_address cookie, regenerate it and fetch users again
-    if (!cockie.value) {
-      globalHome.functionMacaddress(); // This will set the mac_address cookie and trigger fetch
-    } else {
-      await globalHome.fetchUsers();
-     }
 
-     if (globalHome.dataHome?.data) {
+  if (!cockie.value) {
+    // Regenerate MAC address and fetch data
+    await globalHome.functionMacaddress();
+    // Fetch data directly if MAC address exists
+  }
+  await globalHome.fetchUsers();
+
+  // Update the state with fetched data
+  if (globalHome.dataHome?.data) {
     const homeData = globalHome.dataHome.data;
     images.value = homeData.slider;
     occasions.value = homeData.occasions;
@@ -133,6 +135,5 @@ onMounted(async () => {
     top_ordered_products.value = homeData.top_ordered_products;
     socials.value = homeData.socials;
   }
-
 });
 </script>
