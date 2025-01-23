@@ -205,7 +205,7 @@
                 </ul>
               </div>
               <li>
-                <nuxt-link :to="localePath('/orders')" @click.native="clickRequest()">{{
+                <nuxt-link :to="localePath('/orders')" @click.native="clickRequest">{{
                   $t("requests")
                 }}</nuxt-link>
               </li>
@@ -272,8 +272,8 @@ function clickRequest(e) {
   if(!tokenCookie.value) {
     popup.value = true;
     e.preventDefault();
+    buttonShowlinks.value = false;
   }
-  buttonShowlinks.value = false;
 }
 const notification_token = ref(true);
 const handleClick = () => {

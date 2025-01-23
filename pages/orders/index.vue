@@ -56,10 +56,14 @@
 
 <script setup>
 
-
+const router = useRouter(); // Router instance
 const tokenCookie = useCookie("token")
 if(!tokenCookie.value) {
-  navigateTo("/")
+  if (window.history.length > 1) {
+        router.go(-1); // Go back to the previous page
+      } else {
+        router.push('/'); // Redirect to the home page (or another default route)
+      }
 }
 
 const { baseURL } = useAPI();
