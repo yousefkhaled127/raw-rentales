@@ -8,7 +8,7 @@ export const useUsersStore = defineStore('users', {
       loading : true,
   }),
   actions: {
-    functionMacaddress() {
+    functionMacaddress () {
       const characters = 'abcdefghijklmnopqrstuvwxyz'; // Define the characters to use
       let result = '';
       for (let i = 0; i < 7; i++) {
@@ -17,6 +17,9 @@ export const useUsersStore = defineStore('users', {
       }
       const cockie = useCookie("mac_addressGlobal");
       cockie.value = result
+      // Fetch users again after setting the mac_address
+      this.fetchUsers(); 
+
     },
     async fetchUsers() {
       try {
@@ -48,5 +51,9 @@ export const useUsersStore = defineStore('users', {
         console.error("error", error);
       }
     },
+
+
+
+    
   },
 });

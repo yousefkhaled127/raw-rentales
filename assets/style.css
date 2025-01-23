@@ -1802,7 +1802,10 @@ input[type="search"]::-webkit-search-cancel-button {
     font-size: 14px;
   }
   .p-toast {
-    width: 60% !important;
+    width: 70% !important;
+  }
+  .p-toast-summary {
+    font-size: 13px !important;
   }
 }
 @media (max-width: 450px) {
@@ -1844,5 +1847,12 @@ input[type="search"]::-webkit-search-cancel-button {
 @media (max-width: 400px) {
   .order-inner h6 {
     font-size: 10px !important;
+  }
+  .p-toast {
+    width: 80% !important;
+    font-size: 11px !important;
+  }
+  .p-toast-summary {
+    font-size: 11px !important;
   }
 }

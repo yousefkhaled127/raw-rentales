@@ -110,20 +110,29 @@ const socials = ref()
 
 
 const globalHome = useUsersStore();
-globalHome.fetchUsers();
+// globalHome.fetchUsers();
 globalHome.loading = true; // Set loading to true before data fetch
 
 
 
+onMounted(async () => {
+  const cockie = useCookie("mac_addressGlobal");
+// If no mac_address cookie, regenerate it and fetch users again
+    if (!cockie.value) {
+      globalHome.functionMacaddress(); // This will set the mac_address cookie and trigger fetch
+    } else {
+      await globalHome.fetchUsers();
+     }
 
-
-onMounted(() => {
-    const homeData = globalHome.dataHome?.data;
+     if (globalHome.dataHome?.data) {
+    const homeData = globalHome.dataHome.data;
     images.value = homeData.slider;
     occasions.value = homeData.occasions;
     offers.value = homeData.offers;
     recent_products.value = homeData.recent_products;
     top_ordered_products.value = homeData.top_ordered_products;
     socials.value = homeData.socials;
+  }
+
 });
 </script>
