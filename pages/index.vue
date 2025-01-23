@@ -117,10 +117,8 @@ globalHome.loading = true; // Set loading to true before data fetch
 
 
 
- const cockieMacaddress = useCookie("mac_addressGlobal");
- if(!cockieMacaddress.value) {
-      globalHome.functionMacaddress()
-    }
+
+
 onMounted(() => {
     const homeData = globalHome.dataHome?.data;
     images.value = homeData.slider;

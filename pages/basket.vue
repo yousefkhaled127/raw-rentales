@@ -31,7 +31,7 @@
                   <span class="item-measuring">{{ basket.size }}</span>
                 </div>
                 <div
-                  class="d-flex justify-content-between align-items-center mt-5"
+                  class="d-flex justify-content-between align-items-center mt-5 flex-wrap gap-3"
                 >
                   <div class="d-flex gap-3 align-items-center">
                     <button @click="plusQuantity(basket)" class="box-size">
@@ -49,7 +49,7 @@
                 </div>
               </div>
             </div>
-            <div class="mt-2 ps-4">
+            <div class="mt-3 ps-4">
               <h5 class="mb-2">السعر:</h5>
               <div
                 class="d-flex justify-content-between align-items-center flex-wrap gap-3"

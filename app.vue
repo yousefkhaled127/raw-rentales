@@ -12,6 +12,8 @@
 
 
 const globalStore = useGlobalStore();
+const globalHome = useUsersStore();
+const cockieMacaddress = useCookie("mac_addressGlobal");
 
 import { useToast } from "primevue/usetoast";
 const toast = useToast();
@@ -29,6 +31,12 @@ watch(isToastVisible, (newValue) => {
         life: globalStore.toastMsg.time 
       }
   );
+  }
+})
+
+onMounted(() => {
+  if(!cockieMacaddress.value) {
+    globalHome.functionMacaddress()
   }
 })
 </script>

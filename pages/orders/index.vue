@@ -55,6 +55,13 @@
 </template>
 
 <script setup>
+
+
+const tokenCookie = useCookie("token")
+if(!tokenCookie.value) {
+  navigateTo("/")
+}
+
 const { baseURL } = useAPI();
 const currentTab = ref(0);
 const changeCurrentTab = (tab) => {
