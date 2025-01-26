@@ -1807,6 +1807,10 @@ input[type="search"]::-webkit-search-cancel-button {
   .p-toast-summary {
     font-size: 13px !important;
   }
+  .button-basket-submit {
+    width: 83px;
+    font-size: 12px;
+  }
 }
 @media (max-width: 450px) {
   .head-hint {
@@ -1818,7 +1822,10 @@ input[type="search"]::-webkit-search-cancel-button {
     font-size: 10px;
   }
   .dropdown-toggle {
-    font-size: 12px !important;
+    font-size: 14px !important;
+  }
+  .links a {
+    font-size: 14px !important;
   }
   .flex-global {
     gap: 9px;

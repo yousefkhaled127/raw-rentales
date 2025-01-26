@@ -1,7 +1,6 @@
 <template>
   <div>
     <Skeleton v-if="globalHome.loading" class="mb-2 loading-Galleria"></Skeleton>
-    <!-- <Skeleton class="mb-2"></Skeleton> -->
     <section v-else class="home-inner home-slider mt-0">
       <Galleria :value="images" :numVisible="5" autoPlay="true" :showThumbnails="false" :showIndicators="true"
         :circular="true">
@@ -121,8 +120,8 @@ onMounted(async () => {
   if (!cockie.value) {
     // Regenerate MAC address and fetch data
     await globalHome.functionMacaddress();
-    // Fetch data directly if MAC address exists
   }
+  // Fetch data directly if MAC address exists
   await globalHome.fetchUsers();
 
   // Update the state with fetched data
