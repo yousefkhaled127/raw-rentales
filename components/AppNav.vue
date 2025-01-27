@@ -272,8 +272,8 @@ function clickRequest(e) {
   if(!tokenCookie.value) {
     popup.value = true;
     e.preventDefault();
-    buttonShowlinks.value = false;
   }
+  buttonShowlinks.value = false;
 }
 const notification_token = ref(true);
 const handleClick = () => {
