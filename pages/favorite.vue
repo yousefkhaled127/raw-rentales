@@ -1,5 +1,5 @@
 <template>
-  <section class="section-all m-0">
+  <section class="section-all section-all-fav m-0">
     <div class="container">
       <Skeleton class="mb-2 img-gallery mb-3" v-if="loading"></Skeleton>
       <div class="row" v-else>

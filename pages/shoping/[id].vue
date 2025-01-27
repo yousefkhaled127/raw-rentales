@@ -214,6 +214,7 @@ try {
  }
 
 
+ const globalStore = useGlobalStore();
 
  try {
   const { data } = await useFetch("filter-data", {
@@ -227,6 +228,7 @@ try {
   colors.value = data.value.data.colors;
   brands.value = data.value.data.brands;
   sizes.value = data.value.data.sizes;
+
   // console.log(data.value.data)
 
  }catch(error) {
@@ -266,6 +268,15 @@ async function filterProducts() {
     },
     body: formData,
   })
+
+  
+  if(data.value.key == "success") {
+    globalStore.showToast('success', data.value.msg , "", 2000)
+    fillterPopup.value = false;
+  } else {
+    globalStore.showToast('error', data.value.msg , "", 2000)
+    fillterPopup.value = false;
+  }
 
   // console.log(data.value)
   listGalleryitem.value = data.value.data.data;

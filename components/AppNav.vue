@@ -418,13 +418,25 @@ try {
 const arraySocials = ref([])
 const categories = ref([]);
 const globalHome = useUsersStore();
-globalHome.fetchUsers();
 
-onMounted(() => {
-  categories.value = globalHome.dataHome.data.categories;
-  arraySocials.value = globalHome.dataHome.data.socials;
-})
 
+onMounted(async () => {
+  const cockie = useCookie("mac_addressGlobal");
+
+  if (!cockie.value) {
+    // Regenerate MAC address and fetch data
+    await globalHome.functionMacaddress();
+  }
+  // Fetch data directly if MAC address exists
+  await globalHome.fetchUsers();
+
+  // Update the state with fetched data
+  if (globalHome.dataHome?.data) {
+    const homeData = globalHome.dataHome.data;
+    categories.value = homeData.categories;
+    arraySocials.value = homeData.socials;
+  }
+});
 
 const notifications = ref([]);
 

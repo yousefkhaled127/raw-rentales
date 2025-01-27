@@ -69,12 +69,23 @@
 const localePath = useLocalePath();
 const arraySocials = ref([]);
 const globalHome = useUsersStore();
-globalHome.fetchUsers();
 const router = useRouter();
-onMounted(() => {
-  arraySocials.value = globalHome.dataHome.data.socials;
-})
+onMounted(async () => {
+  const cockie = useCookie("mac_addressGlobal");
 
+  if (!cockie.value) {
+    // Regenerate MAC address and fetch data
+    await globalHome.functionMacaddress();
+  }
+  // Fetch data directly if MAC address exists
+  await globalHome.fetchUsers();
+
+  // Update the state with fetched data
+  if (globalHome.dataHome?.data) {
+    const homeData = globalHome.dataHome.data;
+    arraySocials.value = homeData.socials;
+  }
+});
 
 const popup = ref(false);
 const tokenCookie = useCookie("token");

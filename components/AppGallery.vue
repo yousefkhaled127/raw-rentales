@@ -24,13 +24,7 @@
             gallery.discount
           }}%</span>
 
-          <button
-            v-if="props.deleteFavurte"
-            class="delete-gallery"
-            @click="eventFavourate(gallery)"
-          >
-            <font-awesome-icon icon="fa-solid fa-trash-can" />
-          </button>
+ 
 
           <img class="img-gallery" :src="gallery.image" alt="" />
         </div>
@@ -57,6 +51,13 @@
             <font-awesome-icon v-if="!gallery.is_favorite" class="love-gallery" icon="fa-regular fa-heart" />
             <font-awesome-icon v-if="gallery.is_favorite" class="love-gallery" icon="fa-solid fa-heart" />
      </button>
+     <button
+            v-if="props.deleteFavurte"
+            class="delete-gallery"
+            @click="eventFavourate(gallery)"
+          >
+            <font-awesome-icon icon="fa-solid fa-trash-can" />
+          </button>
   </div>
  
 
